@@ -458,6 +458,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // BAŞLANGIÇ AYARLARI (GECİKMELİ)
     // ---------------------------------
     setLanguage(currentLang); 
-    setTimeout(revealOnScroll, 100);
+    revealOnScroll();
 
 }); // DOMContentLoaded sonu
