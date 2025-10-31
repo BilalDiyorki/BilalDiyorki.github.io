@@ -189,35 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------
     // 6. YENİ: DİNAMİK ARKA PLAN RENGİ
     // ---------------------------------
-    const bodyElement = document.body;
-    const htmlElement = document.documentElement;
-    const startBgColor = '#080d13'; 
-    const middleBgColor = '#0d1320'; 
-    const endBgColor = '#080d13';   
-
-    function interpolateColor(color1, color2, factor) {
-        const r1 = parseInt(color1.substring(1, 3), 16); const g1 = parseInt(color1.substring(3, 5), 16); const b1 = parseInt(color1.substring(5, 7), 16);
-        const r2 = parseInt(color2.substring(1, 3), 16); const g2 = parseInt(color2.substring(3, 5), 16); const b2 = parseInt(color2.substring(5, 7), 16);
-        const r = Math.round(r1 + (r2 - r1) * factor); const g = Math.round(g1 + (g2 - g1) * factor); const b = Math.round(b1 + (b2 - b1) * factor);
-        return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
-    }
-    function handleScrollBackground() {
-        const scrollTotal = htmlElement.scrollHeight - htmlElement.clientHeight;
-        if (scrollTotal <= 0) { bodyElement.style.backgroundColor = startBgColor; return; }
-        const scrollPercent = Math.min(htmlElement.scrollTop / scrollTotal, 1);
-        let currentBgColor;
-        if (scrollPercent <= 0.5) {
-            const factor = scrollPercent / 0.5;
-            currentBgColor = interpolateColor(startBgColor, middleBgColor, factor);
-        } else {
-            const factor = (scrollPercent - 0.5) / 0.5;
-            currentBgColor = interpolateColor(middleBgColor, endBgColor, factor);
-        }
-        bodyElement.style.transition = 'background-color 0.3s ease-out';
-        bodyElement.style.backgroundColor = currentBgColor;
-    }
-    window.addEventListener('scroll', handleScrollBackground);
-    handleScrollBackground();
+        // BURASI KALDIRILDI - css e devredildi.
     // ---------------------------------
     // 7. E-POSTA KOPYALA BUTONU (Footer - İsteğe bağlı)
     // ---------------------------------

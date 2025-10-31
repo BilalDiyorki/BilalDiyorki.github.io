@@ -18,8 +18,29 @@
 
 body {
     font-family: 'Inter', 'Poppins', sans-serif;
-    /* Dinamik JS rengi için bir fallback */
-    background-color: var(--bg-color); 
+    
+    /* YENİ: Tırtıklanma (Jank) ÇÖZÜMÜ - V37 */
+    
+    /* 1. Arka plan rengi (fallback) */
+    background-color: #0a0f1a; 
+    
+    /* 2. Sayfanın TÜM YÜKSEKLİĞİ boyunca uzanan gradient */
+    background-image: linear-gradient(
+        to bottom,
+        #080d13 0%,   /* En Üst (Başlangıç - Siyah değil) */
+        #0d1320 50%,  /* Tam Orta (Hafif açık) */
+        #080d13 100%  /* En Alt (Tekrar koyu) */
+    );
+    
+    /* 3. 'fixed' kaldırıldı. 'repeat' olmasın. */
+    background-repeat: no-repeat;
+    
+    /* Bu, gradient'in sadece ekran boyutu kadar değil,
+       TÜM sayfa içeriği kadar uzun olmasını sağlar. */
+    background-size: 100% 100%;
+    
+    /* background-attachment: fixed;  <-- BU SATIR SİLİNDİ */
+    
     color: var(--text-color);
     line-height: 1.6;
     margin: 0;
