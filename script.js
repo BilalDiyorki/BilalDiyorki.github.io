@@ -426,9 +426,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ---------------------------------
-    // BAŞLANGIÇ AYARLARI (Sayfa Yüklendiğinde)
+    // 9. YENİ: YUKARI ÇIK BUTONU (Scroll-to-Top)
+    // ---------------------------------
+    const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
+
+    if (scrollToTopBtn) {
+        
+        // 1. Kaydırmayı dinle (Butonu göster/gizle)
+        window.addEventListener('scroll', () => {
+            // Sayfanın üstünden 400px'den fazla kaydırıldıysa
+            if (window.scrollY > 400) {
+                scrollToTopBtn.classList.add('is-visible');
+            } else {
+                scrollToTopBtn.classList.remove('is-visible');
+            }
+        });
+
+        // 2. Tıklamayı dinle (Yukarı çık)
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' 
+                // Not: Bu, 3. Fikir'deki (CSS) global smooth scroll'dan farklıdır.
+                // Sadece bu butonun pürüzsüz çalışmasını sağlar.
+            });
+        });
+    }
+
+
+    // ---------------------------------
+    // BAŞLANGIÇ AYARLARI (GECİKMELİ)
     // ---------------------------------
     setLanguage(currentLang); 
-    revealOnScroll();
+    setTimeout(revealOnScroll, 100);
 
 }); // DOMContentLoaded sonu

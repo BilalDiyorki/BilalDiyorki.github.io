@@ -732,6 +732,52 @@ body.modal-open {
     }
 }
 
+
+/* ------------------------- */
+/* YENİ: YUKARI ÇIK BUTONU (V34) */
+/* ------------------------- */
+.scroll-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;  /* Yuvarlak olması için genişlik/yükseklik eşit */
+    height: 50px;
+    border-radius: 50%; /* Tam yuvarlak */
+    
+    /* Senin "Buzlu Cam" stilin */
+    background-color: var(--card-bg-glass);
+    border: 1px solid var(--card-border-glass);
+    backdrop-filter: blur(10px);
+    
+    color: var(--accent-color); /* Vurgu renginde ikon */
+    font-size: 1.2rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 998; /* Navbar'ın (100) ve Modalların (1000) arasında */
+    
+    /* Başlangıçta gizli */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px); /* Aşağıda başlasın */
+    transition: all 0.4s ease;
+    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.scroll-to-top.is-visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Normal pozisyonuna gelsin */
+}
+.scroll-to-top:hover {
+    background-color: var(--accent-color); /* Hover'da vurgu rengi */
+    color: var(--button-primary-text); /* Koyu ikon */
+    transform: scale(1.1); /* Hafif büyüsün */
+    box-shadow: 0 0 25px rgba(var(--accent-rgb), 0.4); /* Parlama */
+}
+
 /* ------------------------- */
 /* RESPONSIVE TASARIM */
 /* ------------------------- */
