@@ -159,7 +159,23 @@ document.addEventListener('DOMContentLoaded', () => {
         const linkDistance = 120; 
         const particleCount = 70; 
         const particleSpeed = 0.3;
-        function resizeCanvas() { canvasWidth = window.innerWidth; canvasHeight = window.innerHeight; canvas.width = canvasWidth; canvas.height = canvasHeight; }
+        function resizeCanvas() {
+            // YÜKSEK ÇÖZÜNÜRLÜK (DPI) DÜZELTMESİ
+            const dpr = window.devicePixelRatio || 1; // Cihazın piksel yoğunluğunu al (örn: 2x, 3x)
+            
+            // Canvas'ın CSS boyutunu ekranla aynı yap
+            canvasWidth = window.innerWidth;
+            canvasHeight = window.innerHeight;
+            canvas.style.width = canvasWidth + 'px';
+            canvas.style.height = canvasHeight + 'px';
+            
+            // Canvas'ın gerçek çizim alanını piksel yoğunluğuyla çarp
+            canvas.width = canvasWidth * dpr;
+            canvas.height = canvasHeight * dpr;
+            
+            // Çizim bağlamını (context) da bu yeni orana göre ölçekle
+            ctx.scale(dpr, dpr);
+        }
         class Particle { constructor() { this.x = Math.random() * canvasWidth; this.y = Math.random() * canvasHeight; this.vx = (Math.random() - 0.5) * particleSpeed; this.vy = (Math.random() - 0.5) * particleSpeed; this.radius = 2; } draw() { ctx.beginPath(); ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2); ctx.fillStyle = particleColor; ctx.fill(); } update() { this.x += this.vx; this.y += this.vy; if (this.x < 0 || this.x > canvasWidth) this.vx *= -1; if (this.y < 0 || this.y > canvasHeight) this.vy *= -1; } }
         function createParticles() { particles = []; for (let i = 0; i < particleCount; i++) { particles.push(new Particle()); } }
         function getDistance(p1, p2) { if (!p1 || !p2 || p1.x == null || p1.y == null || p2.x == null || p2.y == null) { return Infinity; } const dx = p1.x - p2.x; const dy = p1.y - p2.y; return Math.sqrt(dx * dx + dy * dy); }
@@ -206,7 +222,7 @@ document.addEventListener('DOMContentLoaded', () => {
 */
 
 
-    const startBgColor = '#0a0f16'; // Koyu Gece Mavisi (Beğenilen)
+    const startBgColor = '#080d13'; // Koyu Gece Mavisi (Beğenilen)
     const middleBgColor = '#0d1320'; // YENİ: Çok Hafif Açık Koyu Mavi
     const endBgColor = '#080d13';   // Tekrar Koyu Gece Mavisi
 
