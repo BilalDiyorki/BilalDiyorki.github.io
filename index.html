@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bilal Aydın — Senior Software Developer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <canvas id="particle-canvas"></canvas>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">BA</a>
+            <div class="lang-switcher">
+                <button id="lang-toggle-btn" title="Dili Değiştir / Change Language">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe w-4 h-4 mr-2" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
+                    <span id="lang-toggle-text">TR</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <section id="hero" class="hero-section">
+             <h1 data-tr="BİLAL AYDIN" data-en="BİLAL AYDIN" class="reveal reveal-fast">BİLAL AYDIN</h1>
+            <h2 class="reveal reveal-med"><span id="typing-effect"></span></h2>
+            <div class="social-links reveal reveal-med">
+                <a href="https://github.com/BilalDiyorki" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/bilal-aydin" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.youtube.com/@bilaldiyorki6402" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://medium.com/@bilalaydineem" target="_blank" title="Medium"><i class="fab fa-medium"></i></a>
+            </div>
+            <p class="hero-intro reveal reveal-slow" 
+               data-tr="Merhaba, ben Bilal. Sistem tasarımı ve yüksek ölçeklenebilir backend mimarileri konusunda uzmanlaşmış bir yazılım geliştiricisiyim. Kodun sadece çalışmasını değil, aynı zamanda zarif ve sürdürülebilir olmasını hedeflerim."
+               data-en="Hello, I'm Bilal. A software developer specializing in system design and highly scalable backend architectures. I aim for code that is not only functional but also elegant and sustainable.">
+               ...
+            </p>
+        </section>
+
+        <section id="about" class="card about-me-card reveal">
+            <div class="about-me-image">
+                <img src="https://media.licdn.com/dms/image/v2/C4D03AQFhOHd1lkQ0mg/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1639723957715?e=2147483647&v=beta&t=JGTH8_B3zr35iIkwdm25eOd1EtElDalnAOGExbBC-Ks" alt="Bilal Aydın">
+            </div>
+            <div class="about-me-text">
+                <h1 data-tr="Hakkımda" data-en="About Me">Hakkımda</h1>
+                <p data-tr="Elektrik-Elektronik Mühendisliği altyapımla, yüksek ölçeklenebilir backend sistemleri tasarlama ve geliştirme konusunda uzmanlaştım. Python ve Django ekosistemine odaklanarak mikroservis mimarisini kullanarak geliştirme süreçlerine liderlik ediyorum. Uzmanlığım, Docker, Celery, Redis ve AWS gibi araçları kullanarak sistem performansını optimize etmek ve veri sürekliliğini sağlamaktır."
+                    data-en="With a foundation in Electrical & Electronics Engineering, I specialize in designing and building highly scalable backend systems. I lead development processes using a microservice architecture, focusing on the Python and Django ecosystem. My expertise lies in optimizing system performance and ensuring data continuity using tools like Docker, Celery, Redis, and AWS.">
+                    ...
+                </p>
+                <div class="languages-mini-section">
+                    <h3 data-tr="Diller" data-en="Languages">Diller</h3>
+                    <p>
+                        <strong data-tr="Türkçe:" data-en="Turkish:">Türkçe:</strong> <span data-tr="Ana Dil" data-en="Native">Ana Dil</span><br>
+                        <strong data-tr="İngilizce:" data-en="English:">İngilizce:</strong> <span data-tr="Orta Düzey" data-en="Intermediate">Orta Düzey</span>
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="reveal">
+             <h3 class="section-title" data-tr="İş Deneyimi" data-en="Work Experience">İş Deneyimi</h3>
+             <div class="card experience-item reveal">
+                <h4>Senior Software Developer & Team Lead</h4>
+                <h5>KALENDER YAZILIM (GETAP) | 2022 – Günümüz</h5>
+                <ul data-tr-list='["Docker mikroservis mimarisini kullanarak ölçeklenebilir sistemlerin tasarımına liderlik etmek.","Django ORM yapısından faydalanarak temiz ve sürdürülebilir sistem altyapıları inşa etmek.","Geliştirilen altyapıyı Django Rest Framework (DRF) ile güvenli API servisleri olarak sunmak.","Celery, Flower ve Redis ile asenkron görev altyapılarını yönetmek.","AWS üzerinde veritabanı yönetimi, optimizasyonu ve yedekleme operasyonlarını yapılandırmak.","Bash ve Python kullanarak sunucu bakımı için otomasyon scriptleri geliştirmek."]'
+                    data-en-list='["Leading the design of scalable systems using a Docker microservices architecture.","Building clean and sustainable system infrastructures by leveraging the Django ORM.","Serving the developed infrastructure as secure API services with Django Rest Framework (DRF).","Managing asynchronous task infrastructures with Celery, Flower, and Redis.","Structuring database management, optimization, and backup operations on AWS.","Developing automation scripts for server maintenance using Bash and Python."]'><li>Yükleniyor...</li></ul>
+            </div>
+            <div class="card experience-item reveal">
+                <h4>System Designer</h4>
+                <h5>OLIVE TECHNOLOGY (USA / İstanbul) | 2020 – 2021</h5>
+                <ul data-tr-list='["Python, Django kullanarak Web 2.0 tabanlı sistem mimarisini tasarlamak.","AWS üzerinde çalışan sistemler için veri güvenliği ve PostgreSQL bağlantı yönetimini yapılandırmak.","Yönetilebilir yetkilendirme için genişletilmiş kullanıcı modelleri geliştirmek.","DigitalOcean ve Heroku üzerinde temel sunucu yapılandırmalarını ve uygulama yayınlama (deployment) süreçlerini yönetmek.","Git/GitHub kullanarak proje sürüm yönetimi ve takım koordinasyonunu sağlamak."]'
+                    data-en-list='["Designing a Web 2.0 based system architecture using Python and Django.","Configuring data security and PostgreSQL connection management for systems running on AWS.","Developing extended user models for administrable authorization.","Managing basic server configurations and application deployment processes on DigitalOcean and Heroku.","Ensuring project version management and team coordination using Git/GitHub."]'><li>Yükleniyor...</li></ul>
+            </div>
+            <div class="card experience-item reveal">
+                <h4>Software Engineering Intern</h4>
+                <h5>OLIVE INNOVATIVE TECHNOLOGY (USA) | 2018 – 2020</h5>
+                <ul data-tr-list='["Depo Yönetim Sistemi (WMS) için &#39;Yenileme Takibi&#39; (Refurbishment Tracking) modülünü geliştirmek.","Çalışan performansı için takip ve metrik sistemleri tasarlamak ve uygulamak.","Günlük bazda performans raporları oluşturmak ve sunmak."]'
+                    data-en-list='["Developed the &#39;Refurbishment Tracking&#39; module for the Warehouse Management System.","Designed and implemented tracking and metric systems for employee performance.","Generated and presented performance reports on a daily basis."]'><li>Yükleniyor...</li></ul>
+            </div>
+        </section>
+
+        <section id="skills" class="reveal">
+            <h3 class="section-title" data-tr="Teknik Yetenekler" data-en="Technical Skills">Technical Skills</h3>
+            <div class="minimalist-grid">
+                
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-code"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Backend Dilleri" data-en="Backend Languages">Backend Dilleri</h4>
+                        <p>Python, C/C++, C#</p>
+                    </div>
+                </div>
+
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-layer-group"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Frameworkler" data-en="Frameworks">Frameworks</h4>
+                        <p>Django, DRF, Flask, Kivy, Scrapy</p>
+                    </div>
+                </div>
+
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-database"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Veritabanı & Cache" data-en="Database & Cache">Database & Cache</h4>
+                        <p>PostgreSQL, SQLite3, Redis, MS Access</p>
+                    </div>
+                </div>
+
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-server"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="DevOps & Altyapı" data-en="DevOps & Infrastructure">DevOps & Infrastructure</h4>
+                        <p>Docker, AWS, Celery, Flower, Git, GitHub, Linux, Bash, JIRA, Selenium, Python http.server</p>
+                    </div>
+                </div>
+                
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-chart-bar"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Frontend & Veri Bilimi" data-en="Frontend & Data Science">Frontend & Veri Bilimi</h4>
+                        <p>JavaScript, HTML, CSS, R</p>
+                    </div>
+                </div>
+
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-microchip"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Mühendislik & Platformlar" data-en="Engineering & Platforms">Mühendislik & Platformlar</h4>
+                        <p>MATLAB, Simulink, Unity, OrCAD, EAGLE PROTEUS, KiCad, PLC, PARSIC</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="projects" class="reveal">
+            <h3 class="section-title" data-tr="Öne Çıkan Projeler" data-en="Featured Projects">Featured Projects</h3>
+            <div class="projects-grid">
+                
+                <div class="project-card reveal">
+                    <div class="project-image"><img src="images/Gemini_Dershanem.png" alt="Destek Dershanem Projesi"></div>
+                    <div class="project-content">
+                        <h4>Destek Dershanem Sistemi</h4>
+                        <p data-tr="Öğrencilerle sohbet edebilen, bir LLM (Büyük Dil Modeli) entegrasyonuna sahip akıllı üniversite hazırlık platformu. Testleri analiz eder, eksik konuları belirler ve rehberlik öğretmeni gibi kişisel çalışma programları sunar." 
+                           data-en="An intelligent university prep platform with an LLM (Large Language Model) integration, allowing it to chat with students. It analyzes tests, identifies weak subjects, and provides custom study plans.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Teknolojiler</h5>
+                        <div class="project-tags">
+                            <span class="tag">Django</span>
+                            <span class="tag">Python</span>
+                            <span class="tag">PostgreSQL</span>
+                            <span class="tag">LLM</span> </div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Detaylar</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card reveal">
+                    <div class="project-image"><img src="images/Gemini_Bidi.png" alt="Video Call API Projesi"></div>
+                    <div class="project-content">
+                        <h4>Chat & Görüntülü Görüşme Web</h4>
+                        <p data-tr="WhatsApp mantığında, anlık mesajlaşma ve dosya aktarımına ek olarak, Django Channels ve WebRTC kullanılarak geliştirilen gerçek zamanlı görüntülü görüşme web uygulaması." 
+                           data-en="A real-time video call web application based on the WhatsApp model, featuring instant messaging and file transfer, developed using Django Channels and WebRTC for video calls.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">Django Channels</span><span class="tag">WebRTC</span><span class="tag">Celery</span><span class="tag">Python</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card reveal">
+                    <div class="project-image"><img src="images/Gemini_Mobil_dil.png" alt="Dil Öğrenim Uygulaması"></div>
+                    <div class="project-content">
+                        <h4>Mobil Dil Öğrenim App</h4>
+                        <p data-tr="Django backend'li, Expo kullanılarak React Native'e derlenen cross-platform mobil dil öğrenim destek uygulaması. Kelime ve ilerleme takibi özelliklerine sahiptir." 
+                           data-en="A cross-platform mobile language learning support application with a Django backend, compiled to React Native using Expo. Features vocabulary and progress tracking.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">Django</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Mobil</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card reveal">
+                    <div class="project-image"><img src="images/Gemini_Telefon_MT.png" alt="Müşteri Takip Sistemi Projesi"></div>
+                    <div class="project-content">
+                        <h4>Müşteri & Mağaza Takip Sistemi</h4>
+                        <p data-tr="Django tabanlı, cep telefonu mağazaları için geliştirilmiş müşteri takibi, cihaz geçmişi, stok ve mağaza yönetim sistemi." 
+                           data-en="A Django-based system for mobile phone shops to manage customer tracking, device history, inventory, and store operations.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">REST API</span><span class="tag">AWS</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card reveal"> 
+                    <div class="project-image"><img src="images/Gemini_Tugo.png" alt="TUGO R&D Projesi"></div>
+                    <div class="project-content">
+                        <h4>TUGO R&D - Ses Komutlu Oyun</h4>
+                        <p data-tr="CTO olarak, Python Kivy ve Unity kullanarak ses komutları ile oynanan etkileşimli bir mobil oyunun geliştirilmesine liderlik ettim. Ses işleme ve oyun mekaniği tasarımından sorumluydum." 
+                           data-en="As CTO, led the development of a voice-interactive mobile game using Python Kivy and Unity. Responsible for sound processing and game mechanic design.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">Unity</span><span class="tag">Kivy</span><span class="tag">Pygame</span><span class="tag">Ses İşleme</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card reveal"> 
+                    <div class="project-image"><img src="images/Gemini_Sevgi_idol.png" alt="Scratch ile Kodlama"></div>
+                    <div class="project-content">
+                        <h4>Sevgi Evleri İdol Projesi (Gönüllü)</h4>
+                        <p data-tr="Sevgi Evleri İdol Projesi kapsamında (Gönüllü), çocuklara Scratch ile kodlama dersleri vererek yazılımı sevdirme ve mesleki rehberlik sağlama." 
+                           data-en="(Volunteer) Mentored children at 'Sevgi Evleri' (Children's Homes) as part of the İdol Project, teaching them coding with Scratch and providing professional guidance in software.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">Gönüllülük</span><span class="tag">Mentörlük</span><span class="tag">Scratch</span><span class="tag">Eğitim</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card project-hidden reveal">
+                    <div class="project-image"><img src="images/Gemini_LODOS_E2.png" alt="Lodos Electric Car Projesi"></div>
+                    <div class="project-content">
+                        <h4>Lodos Electric Car</h4>
+                        <p data-tr="Yazılım Takım Lideri olarak, Raspberry Pi üzerinde Python/Pygame kullanarak dahili elektronik kontrol sistemini (hız, far, pil) geliştirdim. PCB üretimi de yapılmıştır." 
+                           data-en="As Software Team Leader, developed the internal electronic control system (speed, lights, battery) on a Raspberry Pi using Python/Pygame. Included PCB production.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">Python</span><span class="tag">Pygame</span><span class="tag">Raspberry Pi</span><span class="tag">PCB</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card project-hidden reveal">
+                    <div class="project-image"><img src="images/Gemini_DUROT.png" alt="Robotik Projesi"></div>
+                    <div class="project-content">
+                        <h4>DÜROT Robot Topluluğu</h4>
+                        <p data-tr="Düzce Üniversitesi Robot Topluluğu (DÜROT) bünyesinde, C/C++ kullanarak Mini-Sumo ve Çizgi İzleyen robot kategorilerinde aktif olarak robot geliştirme ve yarışmalara katılım." 
+                           data-en="Actively developed (using C/C++) and competed with Mini-Sumo and Line-Follower robots as a member of the Düzce University Robotics Club (DÜROT).">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">Robotik</span><span class="tag">C/C++</span><span class="tag">Arduino</span><span class="tag">Mini-Sumo</span><span class="tag">Elektronik</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card project-hidden reveal">
+                    <div class="project-image"><img src="images/Gemini_EMDR.png" alt="EMDR Cihazı Projesi"></div>
+                    <div class="project-content">
+                        <h4>EMDR Terapi Cihazı</h4>
+                        <p data-tr="EMDR Terapisi için tasarlanan cihazın elektronik tasarımı, KiCad ile PCB çizimi ve prototip üretim süreçleri. Cihaz, ayarlanabilir LED ve titreşim motorlarını kontrol eder." 
+                           data-en="Electronic design, PCB layout (KiCad), and prototype production processes for a device designed for EMDR Therapy. The device controls adjustable LEDs and vibration motors.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">KiCad</span><span class="tag">PCB</span><span class="tag">Elektronik Tasarım</span><span class="tag">Prototip</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card project-hidden reveal"> 
+                    <div class="project-image"><img src="images/Gemini_Sanayi.png" alt="Sanayi Takip Sistemi"></div>
+                    <div class="project-content">
+                        <h4>Sanayi Müşteri Takip (C#)</h4>
+                        <p data-tr="Oto sanayi dükkanları için C# WinForms ile geliştirilen masaüstü uygulama. Araç kabul, yapılan işlemler, ücretlendirme (ödenen/kalan) ve müşteri takibi özelliklerini içerir." 
+                           data-en="A C# WinForms desktop application for auto repair shops. Features vehicle check-in, service logging, billing (paid/remaining), and customer tracking.">...</p>
+                        <h5 class="technologies-label" data-tr="Teknolojiler" data-en="Technologies">Technologies</h5>
+                        <div class="project-tags"><span class="tag">C#</span><span class="tag">WinForms</span><span class="tag">MS Access</span><span class="tag">Masaüstü</span></div>
+                        <div class="project-links">
+                            <a href="#" target="_blank" class="project-btn-git is-private"><i class="fab fa-github"></i> GitHub</a>
+                            <a href="#" class="project-btn open-modal"><i class="fas fa-external-link-alt"></i> <span data-tr="Detaylar" data-en="Details">Details</span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <button id="view-all-projects-btn" class="cta-button reveal"> 
+                <span>Tüm Projeleri Görüntüle</span>
+            </button>
+        </section>
+
+        <section id="education" class="reveal">
+            <h3 class="section-title" data-tr="Eğitim" data-en="Education">Eğitim</h3>
+            <div class="minimalist-grid">
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Yüksek Lisans, Bilgisayar Mühendisliği"
+                            data-en="MSc. Computer Engineering">MSc. Computer Engineering</h4>
+                        <p data-tr="Düzce Üniversitesi (2023 – 2025)"
+                           data-en="Düzce University (2023 – 2025)">Düzce Üniversitesi (2023 – 2025)</p>
+                    </div>
+                </div>
+                
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Lisans, Elektrik & Elektronik Mühendisliği"
+                            data-en="BSc. Electrical & Electronics Engineering">BSc. Electrical & Electronics Engineering</h4>
+                        <p data-tr="Düzce Üniversitesi (2015 – 2021)"
+                           data-en="Düzce University (2015 – 2021)">Düzce Üniversitesi (2015 – 2021)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards" class="reveal">
+             <h3 class="section-title" data-tr="Başarılar & Sertifikalar" data-en="Awards & Certificates">Başarılar & Sertifikalar</h3>
+             <div class="minimalist-grid">
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-award"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Uygulamalı Veri Biliminde Derin Öğrenme" 
+                            data-en="Mastering Applied Data Science with Deep Learning">Uygulamalı Veri Biliminde Derin Öğrenme</h4>
+                        
+                        <p data-tr="Veri Bilimi Bootcamp - USC (Eylül 2022)" 
+                           data-en="Data Science Bootcamp - USC (Sept 2022)">Veri Bilimi Bootcamp - USC (Eylül 2022)</p>
+                    </div>
+                </div>
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-trophy"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="2. Yer – Yıldızlı Projeler" 
+                            data-en="2nd Place – Yıldızlı Projeler">2. Yer – Yıldızlı Projeler</h4>
+                        <p data-tr="(TUGO – Ses Komutlu Oyun)" 
+                           data-en="(TUGO – Voice Commanded Game)">(TUGO – Voice Commanded Game)</p>
+                    </div>
+                </div>
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-star"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="Finalist – StarBig Yarışması" 
+                            data-en="Finalist – StarBig Competition">Finalist – StarBig Yarışması</h4>
+                        <p data-tr="Yıldız Teknik Üniversitesi" 
+                           data-en="Yıldız Technical University">Yıldız Teknik Üniversitesi</p>
+                    </div>
+                </div>
+                <div class="card minimalist-card reveal">
+                    <i class="fas fa-robot"></i>
+                    <div class="minimalist-card-text">
+                        <h4 data-tr="7. Sıra – 12. Uluslararası Robot Yarışması" data-en="7th Place – 12th Int. Robot Competition">7. Sıra – 12. Uluslararası Robot Yarışması</h4>
+                        <p data-tr="Açık Proje Kategorisi" data-en="Open Project Category">Açık Proje Kategorisi</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="reveal">
+            <h3 class="section-title" data-tr="İletişim" data-en="Contact">İletişim</h3>
+            <p class="contact-subtitle" data-tr="Benimle iletişime geçin." data-en="Get in touch with me.">Benimle iletişime geçin.</p>
+            
+            <a href="mailto:bilalaydineem@gmail.com" class="card contact-email-card reveal">
+                <i class="fas fa-envelope"></i>
+                <p>bilalaydineem@gmail.com</p>
+            </a>
+            
+            <div class="contact-social-links reveal">
+                <a href="https://github.com/BilalDiyorki" target="_blank" class="contact-social-btn">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="https://linkedin.com/in/bilal-aydin" target="_blank" class="contact-social-btn">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://medium.com/@bilalaydineem" target="_blank" class="contact-social-btn">
+                    <i class="fab fa-medium"></i> Medium
+                </a>
+            </div>
+        </section>
+
+        <footer class="reveal">
+            <a href="mailto:bilalaydineem@gmail.com?subject=CV Talebi - Portfolyo&body=Merhaba Bilal,%0D%A%0D%0APortfolyonuzu inceledim ve CV'nizin tam sürümünü rica edebilir miyim?%0D%A%0D%0Aİyi çalışmalar." 
+               class="cta-button" 
+               id="request-cv-btn"> <i class="fas fa-paper-plane"></i> 
+                <span data-tr="CV Talep Et" data-en="Request CV">CV Talep Et</span>
+            </a>
+            <p>&copy; 2.5 Bilal Aydın. <span data-tr="Tüm hakları saklıdır." data-en="All rights reserved.">Tüm hakları saklıdır.</span></p>
+        </footer>
+    </div>
+
+    <div id="project-modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="modal-backdrop" data-close-project></div>
+        <div class="modal-dialog" role="document">
+            <div class="modal-image" id="modal-img"></div>
+            <button class="modal-close" aria-label="Kapat" data-close-project>&times;</button>
+            <div class="modal-content">
+                <h3 class="modal-title" id="modal-title">Proje Başlığı</h3>
+                <p class="modal-description" id="modal-desc"></p>
+                <h5 class="modal-tech-label" data-tr="Teknolojiler" data-en="Technologies">Teknolojiler</h5>
+                <div class="modal-tags" id="modal-tags"></div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="private-repo-modal" class="modal" aria-hidden="true" role="dialog">
+        <div class="modal-backdrop" data-close-private></div>
+        <div class="modal-dialog" role="document">
+            <button class="modal-close" aria-label="Kapat" data-close-private>&times;</button>
+            <div class="modal-content">
+                <i class="fas fa-lock modal-icon-header"></i>
+                <h3 class="modal-title" data-tr="Erişim Kısıtlı" data-en="Access Restricted">Erişim Kısıtlı</h3>
+                <p class="modal-description" data-tr="Bu GitHub reposu 'private' (gizli) olarak ayarlanmıştır. Kaynak kodları yalnızca izinli kullanıcılar tarafından görüntülenebilir." data-en="This GitHub repository is set to private. Source code can only be viewed by authorized users.">
+                    ...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,762 @@
+/* ------------------------- */
+/* NİHAİ SÜRÜM V33: TEMEL AYARLAR */
+/* ------------------------- */
+:root {
+    --bg-color: #0F141A;
+    --card-bg-glass: rgba(29, 40, 54, 0.7);
+    --card-border-glass: rgba(255, 255, 255, 0.07);
+    --accent-color: #30b9e3;
+    --accent-rgb: 48, 185, 227; /* DÜZELTİLDİ */
+    --text-color: #cdd3db; 
+    --text-color-social: #080808; 
+    --header-color: #e6edf3;
+    --button-primary-bg: var(--accent-color);
+    --button-primary-text: #0F141A;
+    --tag-bg: #f3eeee;
+    --tag-text: #020911;
+}
+
+body {
+    font-family: 'Inter', 'Poppins', sans-serif;
+    /* Dinamik JS rengi için bir fallback */
+    background-color: var(--bg-color); 
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+#particle-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; 
+    opacity: 0.6;
+}
+
+.container {
+    max-width: 1200px; /* Senin CSS'inden */
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+section {
+    margin-bottom: 5rem; 
+}
+
+/* ------------------------- */
+/* NAVBAR */
+/* ------------------------- */
+.navbar {
+    background-color: var(--card-bg-glass);
+    backdrop-filter: blur(15px);
+    border-bottom: 1px solid var(--card-border-glass);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+}
+.navbar::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 1px;
+    background: linear-gradient(90deg,
+        rgba(var(--accent-rgb), 0) 0%,
+        rgba(var(--accent-rgb), 0.9) 50%,
+        rgba(var(--accent-rgb), 0) 100%
+    );
+    box-shadow: 0 0 12px rgba(var(--accent-rgb), 0.45);
+    pointer-events: none;
+}
+.nav-container {
+    max-width: 95%; /* Senin CSS'inden */
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--header-color);
+    text-decoration: none;
+}
+#lang-toggle-btn {
+    background: none;
+    border: none; 
+    color: var(--text-color);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border-radius: 8px; 
+    transition: all 0.3s ease;
+}
+#lang-toggle-btn:hover {
+    color: var(--accent-color);
+    background-color: rgba(var(--accent-rgb), 0.1);
+}
+#lang-toggle-btn i.fas.fa-globe { 
+    font-size: 0.9rem;
+    font-weight: 300; /* İnce ikon */
+    line-height: 1;
+}
+#lang-toggle-btn span {
+    font-size: 0.9rem;
+}
+
+/* ------------------------- */
+/* GENEL KART YAPISI */
+/* ------------------------- */
+.card {
+    background-color: var(--card-bg-glass);
+    border: 1px solid var(--card-border-glass);
+    backdrop-filter: blur(1px); /* blur(1px) -> 15px yapıldı */
+    border-radius: 12px;
+    padding: 2.2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.05); 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(var(--accent-rgb), 0.3); 
+    box-shadow: 0 8px 35px rgba(var(--accent-rgb), 0.1); 
+}
+.section-title {
+    color: var(--header-color);
+    font-size: 3rem; /* Senin CSS'inden */
+    font-weight: 600;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+/* ------------------------- */
+/* BÖLÜM: HERO */
+/* ------------------------- */
+.hero-section {
+    min-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 0rem 0; /* Senin CSS'inden */
+}
+.hero-section h1 {
+    color: var(--header-color);
+    font-size: 3.6rem; /* Senin CSS'inden */
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(var(--accent-rgb), 0.3);
+}
+.hero-section h2 {
+    color: var(--accent-color); 
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: 2rem;
+    min-height: 28px;
+}
+.typed-cursor { font-size: 1.6rem; color: var(--accent-color); }
+.social-links { display: flex; gap: 1.5rem; }
+.social-links a {
+    color: var(--text-color);
+    font-size: 1.6rem;
+    transition: all 0.3s ease;
+}
+.social-links a:hover {
+    color: var(--accent-color);
+    transform: scale(1.1);
+}
+.hero-intro {
+    font-size: 1.05rem;
+    color: var(--text-color);
+    max-width: 600px;
+    margin-top: 2.5rem;
+    line-height: 1.7;
+}
+
+/* ------------------------- */
+/* BÖLÜM: HAKKIMDA (2 Sütunlu) */
+/* ------------------------- */
+.about-me-card {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+    gap: 2.5rem;
+    padding: 2.5rem;
+    margin-bottom: 5rem; /* Senin CSS'inden */
+}
+.about-me-image img {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1; 
+    object-fit: cover;
+    border-radius: 50%; 
+    border: 2px solid var(--card-border-glass);
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.1);
+}
+.about-me-text h1, .about-me-text h3 { /* h1 ve h3'ü kapsa */
+    color: var(--header-color);
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+.about-me-text p {
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+.languages-mini-section {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--card-border-glass);
+}
+.languages-mini-section h3, .languages-mini-section h4 { /* h3 ve h4'ü kapsa */
+    color: var(--header-color);
+    font-size: 1rem;
+    margin: 0 0 0.5rem 0;
+}
+.languages-mini-section p {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.8;
+}
+
+/* ------------------------- */
+/* BÖLÜM: İŞ DENEYİMİ */
+/* ------------------------- */
+.experience-item h4 {
+    color: var(--header-color);
+    font-size: 1.1rem; margin: 0;
+}
+.experience-item h5 {
+    color: var(--text-color);
+    font-size: 0.9rem; font-weight: 400; margin-bottom: 1rem;
+}
+.experience-item ul { padding-left: 20px; margin: 0; }
+.experience-item li { font-size: 0.95rem; margin-bottom: 6px; }
+
+/* ------------------------- */
+/* Minimalist Kart Gridleri (Yetenek, Eğitim, Başarı) */
+/* ------------------------- */
+.minimalist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+.minimalist-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.8rem;
+}
+.minimalist-card i {
+    font-size: 1.8rem;
+    color: var(--accent-color);
+    width: 30px;
+    text-align: center;
+}
+.minimalist-card-text h4 {
+    color: var(--header-color);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 0.2rem 0;
+}
+.minimalist-card-text p {
+    font-size: 0.9rem;
+    margin: 0;
+    color: var(--text-color);
+}
+
+/* ------------------------- */
+/* BÖLÜM: PROJELER (Senin CSS'inden TEMİZLENDİ) */
+/* ------------------------- */
+.projects-grid {
+    display: grid;
+    /* 3 sütunlu */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1.5rem;
+}
+.project-card {
+    display: flex; 
+    flex-direction: column; 
+    overflow: hidden; 
+    /* .card'dan stilleri miras alır (border-radius: 12px) */
+    /* Senin kodundaki .project-card'a özel stil ayarları: */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(1px); /* 1px'den 15px'e yükselttim */
+    border-radius: 18px; /* Oval */
+    margin-bottom: 0.5rem;
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.05);
+    background-color: var(--card-bg-glass);
+}
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(var(--accent-rgb), 0.3); 
+    box-shadow: 0 8px 35px rgba(var(--accent-rgb), 0.1);
+}
+
+.project-image { 
+    position: relative; 
+    overflow: hidden; 
+}
+.project-image::before {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    box-shadow: inset 0 0 40px rgba(0,0,0,0.55), inset 0 0 120px rgba(0,0,0,0.35);
+}
+.project-image::after {
+    content: "";
+    position: absolute; inset: 0; pointer-events: none; z-index: 1;
+    background:
+        linear-gradient(to top, rgba(0,0,0,0) 70%, rgba(0,0,0,0.55) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0.0) 100%, rgba(0,0,0,0.28) 100%),
+        linear-gradient(to left, rgba(0,0,0,0.0) 80%, rgba(0,0,0,0.40) 100%),
+        linear-gradient(to right, rgba(0,0,0,0.0) 80%, rgba(0,0,0,0.40) 100%),
+        radial-gradient(220px 160px at 0% 0%, rgba(0,0,0,0.55), rgba(0,0,0,0) 65%),
+        radial-gradient(220px 160px at 100% 0%, rgba(0,0,0,0.55), rgba(0,0,0,0) 65%),
+        radial-gradient(240px 180px at 0% 100%, rgba(0,0,0,0.60), rgba(0,0,0,0) 70%),
+        radial-gradient(240px 180px at 100% 100%, rgba(0,0,0,0.60), rgba(0,0,0,0) 70%),
+        linear-gradient(to bottom, rgba(17,33,54,0) 70%, rgba(17,33,54,0.85) 100%);
+}
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    opacity: 1;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    display: block;
+    position: relative; z-index: 0; will-change: transform;
+}
+.project-card:hover img {
+    transform: scale(1.08); 
+    opacity: 1; 
+}
+.project-content { 
+    padding: 1.5rem; 
+    flex-grow: 1; 
+    display: flex; 
+    flex-direction: column;
+}
+.technologies-label {
+    margin: 0.35rem 0 0.2rem 0;
+    font-size: 0.70rem; 
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: rgba(205, 211, 219, 0.5); 
+}
+.project-content p {
+    flex-grow: 1; 
+    margin-bottom: 1rem; 
+    font-size: 0.80rem; 
+    font-weight: 600;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; 
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    min-height: calc(1.4 * 0.8rem * 2); 
+}
+.project-content  h4 {
+    font-size: 1.5rem; 
+    font-weight: 800;
+    margin-bottom: 0rem; 
+    margin-top: 0rem; 
+}
+.project-tags { margin-bottom: 0.8rem; }
+.tag {
+    display: inline-block;
+    background-color: var(--tag-bg); 
+    color: var(--tag-text); 
+    padding: 3px 8px; 
+    border-radius: 5px;
+    font-size: 0.7rem; 
+    margin: 2px; 
+    font-weight: 700; 
+    transition: all 0.2s ease;
+}
+.tag:hover {
+    background-color: var(--accent-color);
+    color: var(--button-primary-text);
+}
+.project-links { display: flex; gap: 1rem; }
+
+/* TEK BUTON STİLİ (.project-btn) - .project-btn-git */
+.project-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px; 
+    padding: 6px 10px; 
+    border: 1px solid rgba(255, 255, 255, 0.212);
+    background-color: rgba(255, 255, 255, 0.164); 
+    color: var(--header-color); 
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.78rem; 
+    border-radius: 8px; 
+    transition: all 0.3s ease;
+}
+.project-btn:hover {
+    background-color: var(--accent-color);
+    border-color: var(--accent-color);
+    color: var(--button-primary-text);
+    transform: translateY(-2px); 
+    box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3); 
+}
+.project-btn .fab,
+.project-btn .fas {
+    color: inherit;
+}
+
+.project-btn-git {
+    display: inline-flex; /* İçerik ve ikonun hizalanması için */
+    align-items: center;
+    gap: 6px; /* İkon ile metin arası boşluk */
+    padding: 6px 10px; /* tag'lerden bir tık büyük */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Hafif beyaz kenarlık */
+    color: var(--header-color); /* Metin rengi */
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.78rem; /* etiketlerden büyük */
+    border-radius: 8px; /* Köşeleri biraz daha yumuşak */
+    transition: all 0.3s ease;
+}
+
+.project-btn-git:hover {
+    background-color: var(--accent-color); /* Hover'da belirgin renk */
+    border-color: var(--accent-color);
+    color: var(--button-primary-text); /* Metin rengi koyu */
+    transform: translateY(-2px); /* Hafif yukarı kalkma */
+    box-shadow: 0 4px 15px rgba(var(--accent-rgb), 0.3); /* Hafif gölge */
+}
+.project-btn-git .fab,
+.project-btn-git .fas {
+    color: inherit;
+}
+
+/* ------------------------- */
+/* Ana CTA Butonları (CV İndir vb.) */
+/* ------------------------- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
+    font-size: 0.95rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(var(--accent-rgb), 0.3);
+}
+.cta-button:hover {
+    box-shadow: 0 0 30px rgba(var(--accent-rgb), 0.5);
+    transform: scale(1.03);
+}
+#view-all-projects-btn {
+    display: block;
+    margin: 2rem auto 0 auto;
+}
+#view-all-projects-btn span {
+    transition: all 0.3s ease; 
+}
+/* Kopyala Butonu (Footer için) - V31'den GELDİ */
+.cta-button.copied {
+    background-color: #28a745;
+    color: #fff;
+    box-shadow: 0 0 20px rgba(40, 167, 69, 0.5);
+}
+
+/* ------------------------- */
+/* İletişim Bölümü (V13 Stili + Düzeltme) */
+/* ------------------------- */
+.contact-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    margin-top: -1.5rem;
+    margin-bottom: 2rem;
+}
+.contact-email-card {
+    padding: 2.5rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--header-color);
+    display: block; 
+    max-width: 600px; 
+    margin: 0 auto 1.5rem auto; 
+}
+.contact-email-card i {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+}
+.contact-email-card p {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin: 0;
+    word-break: break-all;
+}
+.contact-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+.contact-social-btn {
+    background-color: var(--tag-bg); 
+    color: var(--text-color-social); 
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+}
+.contact-social-btn:hover {
+    background-color: var(--accent-color);
+    color: var(--button-primary-text);
+}
+
+/* ------------------------- */
+/* FOOTER */
+/* ------------------------- */
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--card-border-glass);
+    font-size: 0.9rem;
+}
+footer .cta-button {
+    margin-bottom: 1.5rem;
+}
+footer p {
+    margin: 0;
+}
+
+/* ------------------------- */
+/* YENİ: MODAL TASARIMLARI (V31) */
+/* ------------------------- */
+
+/* ------------------------- */
+/* YENİ: MODAL KAYMA (JANK) DÜZELTMESİ */
+/* (Bu bölümü CSS dosyanızın MODAL TASARIMLARI bölümünün
+   üstüne veya altına ekleyebilirsiniz) */
+/* ------------------------- */
+body.modal-open {
+    overflow: hidden;
+    /* JS tarafından hesaplanan kaydırma çubuğu genişliği */
+    padding-right: var(--scrollbar-width, 0px);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: flex; 
+    align-items: flex-start; 
+    justify-content: center; 
+    padding: 4rem 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+.modal.is-visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-backdrop {
+    position: fixed; 
+    inset: 0;
+    background: rgba(10, 15, 22, 0.6);
+    backdrop-filter: blur(5px);
+    cursor: pointer;
+}
+.modal-dialog {
+    position: relative; 
+    z-index: 1001;
+    max-width: 700px; 
+    width: 100%;
+    background-color: var(--card-bg-glass);
+    border: 1px solid var(--card-border-glass);
+    border-radius: 18px; 
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    transform: scale(0.95);
+    transition: all 0.3s ease;
+    overflow: hidden; 
+}
+.modal.is-visible .modal-dialog {
+    transform: scale(1);
+}
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: var(--header-color);
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.2s ease;
+}
+.modal-close:hover {
+    background: var(--accent-color);
+    color: var(--button-primary-text);
+    border-color: var(--accent-color);
+    transform: scale(1.1);
+}
+.modal-image {
+    width: 100%;
+    height: 300px; 
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--card-border-glass);
+}
+.modal-content {
+    padding: 1.5rem 2rem 2rem 2rem; 
+}
+.modal-title {
+    margin: 0 0 1rem 0;
+    color: var(--header-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+.modal-description {
+    color: var(--text-color); 
+    line-height: 1.7; 
+    font-size: 0.95rem; 
+    margin-bottom: 1.5rem;
+}
+.modal-tech-label {
+    margin: 0 0 0.8rem 0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    color: var(--text-color);
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+.modal-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.modal-icon-header {
+    display: block;
+    font-size: 2rem;
+    color: var(--accent-color);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+#private-repo-modal .modal-content {
+    padding-top: 2rem;
+}
+
+/* ------------------------- */
+/* ANİMASYONLAR (V22 - "Patlama" Çözümü) */
+/* ------------------------- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transition-delay: 0.1s;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+.reveal-fast { transition-delay: 0s; }
+.reveal-med { transition-delay: 0.1s; }
+.reveal-slow { transition-delay: 0.2s; }
+
+/* GİZLİ KARTLARIN BAŞLANGIÇ DURUMU */
+.project-hidden {
+    display: none; /* Sadece gizle, yer kaplama */
+}
+
+/* Butonla açılan kartlar için animasyon */
+.project-card.is-visible {
+    display: flex; /* Flex olarak görünür yap */
+    animation: popIn 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@keyframes popIn {
+    from { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.98);
+    }
+    to { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+}
+/* YENİ: KARTLARI GİZLEMEK İÇİN EKLENDİ (popOut) */
+.project-card.is-hiding {
+    animation: popOut 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53) forwards;
+}
+
+@keyframes popOut {
+    from { 
+        opacity: 1; 
+        transform: translateY(0) scale(1);
+    }
+    to { 
+        opacity: 0; 
+        transform: translateY(20px) scale(0.98);
+    }
+}
+
+/* ------------------------- */
+/* RESPONSIVE TASARIM */
+/* ------------------------- */
+@media (max-width: 1100px) {
+    .projects-grid {
+        grid-template-columns: 1fr 1fr; 
+    }
+}
+@media (max-width: 768px) {
+    .projects-grid, .minimalist-grid, .about-me-card {
+        grid-template-columns: 1fr;
+    }
+    .about-me-image {
+        max-width: 200px;
+        margin: 0 auto;
+    }
+    .about-me-text {
+        text-align: center;
+    }
+}
+@media (max-width: 600px) {
+    .container, .nav-container { padding: 0 1.5rem; }
+    .hero-section h1 { font-size: 2.5rem; }
+    .hero-section h2 { font-size: 1.2rem; }
+    .card { padding: 1.5rem; }
+    .minimalist-grid { grid-template-columns: 1fr; } 
+    .contact-social-links { flex-direction: column; }
+}
