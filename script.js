@@ -191,89 +191,33 @@ document.addEventListener('DOMContentLoaded', () => {
     // ---------------------------------
     const bodyElement = document.body;
     const htmlElement = document.documentElement;
-   // const startBgColor = '#0a0f1a'; // Başlangıç (en koyu)
-   // const middleBgColor = '#1f2937'; // Orta (biraz daha açık)
-   // const endBgColor = '#0a0f1a';   // Bitiş (tekrar en koyu)
+    const startBgColor = '#080d13'; 
+    const middleBgColor = '#0d1320'; 
+    const endBgColor = '#080d13';   
 
-   // const startBgColor = '#0c131a';
-   //const middleBgColor = '#1c2b3a';
-   //const endBgColor = '#0c131a';
-
-  // const startBgColor = '#080808'; //(Neredeyse Siyah)
-   //const middleBgColor = '#0c131a'; //(Orta Koyu Gri)
-   //const endBgColor = '#080808'; //(Tekrar Siyah)
-
-    // --- YENİ RENKLER (V23) ---
-    //const startBgColor = '#05080D'; // Çok koyu, hafif gece mavisi
-    //const middleBgColor = '#1a2a47'; // Koyu, mavimsi-yeşilimsi gri
-    //const endBgColor = '#05080D';   // Tekrar çok koyu gece mavisi
-/*
-    const startBgColor = '#0a0f1a'; // Çok koyu gece mavisi (V22'ye geri döndük)
-    const middleBgColor = '#121d31'; // YENİ: Tam ara koyu mavi
-    const endBgColor = '#0a0f1a';   // Tekrar çok koyu gece mavisi
-
-    const startBgColor = '#0a0f1a'; // Çok koyu gece mavisi (Aynı)
-    const middleBgColor = '#102a33'; // YENİ: Koyu Petrol Yeşili/Mavisi
-    const endBgColor = '#0a0f1a';   // Tekrar çok koyu gece mavisi (Aynı)
-
-    const startBgColor = '#06080c'; // YENİ: Ultra Koyu Gece Mavisi/Siyah
-    const middleBgColor = '#0b191f'; // YENİ: Daha Koyu Petrol/Teal
-    const endBgColor = '#06080c';   // YENİ: Tekrar Ultra Koyu
-*/
-
-
-    const startBgColor = '#080d13'; // Koyu Gece Mavisi (Beğenilen)
-    const middleBgColor = '#0d1320'; // YENİ: Çok Hafif Açık Koyu Mavi
-    const endBgColor = '#080d13';   // Tekrar Koyu Gece Mavisi
-
-    // İki HEX rengi arasında geçiş yapan yardımcı fonksiyon
     function interpolateColor(color1, color2, factor) {
-        const r1 = parseInt(color1.substring(1, 3), 16);
-        const g1 = parseInt(color1.substring(3, 5), 16);
-        const b1 = parseInt(color1.substring(5, 7), 16);
-        const r2 = parseInt(color2.substring(1, 3), 16);
-        const g2 = parseInt(color2.substring(3, 5), 16);
-        const b2 = parseInt(color2.substring(5, 7), 16);
-        const r = Math.round(r1 + (r2 - r1) * factor);
-        const g = Math.round(g1 + (g2 - g1) * factor);
-        const b = Math.round(b1 + (b2 - b1) * factor);
+        const r1 = parseInt(color1.substring(1, 3), 16); const g1 = parseInt(color1.substring(3, 5), 16); const b1 = parseInt(color1.substring(5, 7), 16);
+        const r2 = parseInt(color2.substring(1, 3), 16); const g2 = parseInt(color2.substring(3, 5), 16); const b2 = parseInt(color2.substring(5, 7), 16);
+        const r = Math.round(r1 + (r2 - r1) * factor); const g = Math.round(g1 + (g2 - g1) * factor); const b = Math.round(b1 + (b2 - b1) * factor);
         return `#${r.toString(16).padStart(2, '0')}${g.toString(16).padStart(2, '0')}${b.toString(16).padStart(2, '0')}`;
     }
-
-    // Scroll olayını dinleyen fonksiyon
     function handleScrollBackground() {
         const scrollTotal = htmlElement.scrollHeight - htmlElement.clientHeight;
-        if (scrollTotal <= 0) { // Scroll yoksa başlangıç renginde kal
-            bodyElement.style.backgroundColor = startBgColor;
-            return;
-        }
-        // Scroll yüzdesini hesapla (0 ile 1 arasında)
+        if (scrollTotal <= 0) { bodyElement.style.backgroundColor = startBgColor; return; }
         const scrollPercent = Math.min(htmlElement.scrollTop / scrollTotal, 1);
-
         let currentBgColor;
         if (scrollPercent <= 0.5) {
-            // İlk yarı: Koyu -> Açık
-            const factor = scrollPercent / 0.5; // Yüzdeyi 0-1 arasına ölçekle
+            const factor = scrollPercent / 0.5;
             currentBgColor = interpolateColor(startBgColor, middleBgColor, factor);
         } else {
-            // İkinci yarı: Açık -> Koyu
-            const factor = (scrollPercent - 0.5) / 0.5; // Yüzdeyi 0-1 arasına ölçekle
+            const factor = (scrollPercent - 0.5) / 0.5;
             currentBgColor = interpolateColor(middleBgColor, endBgColor, factor);
         }
-        
-        // Hesaplanan rengi body'e uygula
+        bodyElement.style.transition = 'background-color 0.3s ease-out';
         bodyElement.style.backgroundColor = currentBgColor;
     }
-
-    // Scroll olayını dinle
     window.addEventListener('scroll', handleScrollBackground);
-
-    // Başlangıç rengini ayarla (CSS'te de fallback olarak var)
-    bodyElement.style.backgroundColor = startBgColor;
-    
-    // Sayfa yüklendiğinde ve ilk scroll reveal çalıştığında da rengi ayarla
     handleScrollBackground();
-
     // ---------------------------------
     // 7. E-POSTA KOPYALA BUTONU (Footer - İsteğe bağlı)
     // ---------------------------------
