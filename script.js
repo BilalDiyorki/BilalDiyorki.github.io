@@ -342,7 +342,78 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     // ---------------------------------
-    // 9. YENİ: YUKARI ÇIK BUTONU (Scroll-to-Top)
+    // 9. AI ASİSTAN İFRAME YÜKLEME KONTROLÜ
+    // ---------------------------------
+    const aiAssistantIframe = document.getElementById('ai-assistant-iframe');
+
+    // İframe yükleme kontrolü
+    if (aiAssistantIframe) {
+        let loadAttempts = 0;
+        const maxLoadAttempts = 3;
+        
+        // İframe yüklendiğinde kontrol et
+        aiAssistantIframe.addEventListener('load', () => {
+            console.log('AI Assistant iframe yüklendi');
+            loadAttempts++;
+            
+            // İframe yüklendikten sonra içeriğin hazır olması için kısa bir bekleme
+            // Hard refresh sonrası ilk mesajın gelmesi için
+            setTimeout(() => {
+                try {
+                    // İframe'in içeriğine erişmeyi dene (cross-origin olabilir)
+                    const iframeDoc = aiAssistantIframe.contentDocument || aiAssistantIframe.contentWindow?.document;
+                    if (iframeDoc && iframeDoc.readyState === 'complete') {
+                        console.log('İframe içeriği hazır');
+                    } else {
+                        // İçerik hazır değilse, iframe'i yeniden yükle
+                        if (loadAttempts < maxLoadAttempts) {
+                            console.log('İframe içeriği hazır değil, yeniden yükleniyor...');
+                            const currentSrc = aiAssistantIframe.src;
+                            // Cache-busting için timestamp ekle
+                            const separator = currentSrc.includes('?') ? '&' : '?';
+                            aiAssistantIframe.src = currentSrc + separator + '_t=' + Date.now();
+                        }
+                    }
+                } catch (e) {
+                    // Cross-origin hatası normal, görmezden gel
+                    console.log('Cross-origin erişim hatası (normal)');
+                }
+            }, 500); // İframe yüklendikten 500ms sonra kontrol et
+        });
+
+        // İframe yüklenemezse tekrar dene
+        aiAssistantIframe.addEventListener('error', () => {
+            console.error('AI Assistant iframe yüklenemedi');
+            loadAttempts++;
+            
+            // Hata durumunda src'yi yeniden ayarla
+            if (loadAttempts < maxLoadAttempts) {
+                setTimeout(() => {
+                    if (aiAssistantIframe.src) {
+                        const currentSrc = aiAssistantIframe.src.split('?')[0].split('&')[0];
+                        // Cache-busting için timestamp ekle
+                        aiAssistantIframe.src = currentSrc + '?_t=' + Date.now();
+                    }
+                }, 1000);
+            }
+        });
+        
+        // Sayfa yüklendiğinde iframe'in yüklenmesini garanti altına al
+        // Hard refresh sonrası iframe'in düzgün yüklenmesi için
+        window.addEventListener('load', () => {
+            // Eğer iframe henüz yüklenmediyse, biraz bekle ve kontrol et
+            setTimeout(() => {
+                if (aiAssistantIframe && !aiAssistantIframe.contentWindow) {
+                    console.log('İframe yüklenmemiş, yeniden yükleniyor...');
+                    const currentSrc = aiAssistantIframe.src.split('?')[0].split('&')[0];
+                    aiAssistantIframe.src = currentSrc + '?_t=' + Date.now();
+                }
+            }, 1000);
+        });
+    }
+
+    // ---------------------------------
+    // 10. YENİ: YUKARI ÇIK BUTONU (Scroll-to-Top)
     // ---------------------------------
     const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
 
